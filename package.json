@@ -1,0 +1,12 @@
+{
+  "name": "faunadb_crud_node_Steps",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MArsalanAI3/faunadb_crud_node_Steps.git",
+  "author": "MArsalanAI3 <marsalanai3@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "faunadb": "^4.0.0"
+  }
+}
