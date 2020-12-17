@@ -11,24 +11,28 @@ require('dotenv').config();
 
     var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
     
-    //Create a index of the container in the database
+    //Completely delete a document in the container of the database 
     try {
       var result = await client.query(
-        q.CreateIndex({
-            name: 'posts_by_title',
-            source: q.Collection('posts'),
-            terms: [{ field: ['data', 'title'] }],
-          })
+        q.Delete(
+            q.Ref(q.Collection('posts'), '285111856431891969')
+            )
       );
-      console.log("Index Created: " + result.name);
+      console.log("Document deleted in Container of Database: " + result.ref.id);
+    
     } 
     catch (error){
         console.log('Error: ');
         console.log(error);
     }
-      
+
   } else {
-    console.log('No FAUNADB_SERVER_SECRET in .env file, skipping Index Creation');
+    console.log('No FAUNADB_SERVER_SECRET in .env file, skipping Document Deletion');
   }
 
 })();
+
+/*
+After running this node program check the database:
+https://dashboard.fauna.com/collections/posts/@db/mytestdatabase
+*/

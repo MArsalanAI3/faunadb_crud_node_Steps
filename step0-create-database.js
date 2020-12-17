@@ -15,6 +15,7 @@ require('dotenv').config();
       try {
         var result = await client.query(
           q.CreateDatabase({ name: 'mytestdatabase' })
+          
         );
         console.log(result);
       } 
